@@ -1,0 +1,85 @@
+/* p{ */
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 500; */
+    /* text-decoration:wavy underline; */
+    /* text-decoration-line: underline; */
+    /* text-decoration-line: underline; */
+    /* text-decoration-style: dotted; */
+    /* text-decoration-color: blue; */
+    /* text-decoration-thickness: 5px; */
+    /* font-size:20px;
+    letter-spacing:2px;
+    word-spacing:30px; */
+
+/* } */
+
+/* div{
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    padding:20px;
+    margin:40px;
+    background-color:rgba(82, 64, 66, 0.2);
+    border: 6px solid black;
+    border-radius: 20px 60px 40px 100px;
+    background: url('https://images.unsplash.com/photo-1778222413836-8c3d280b6460?w=500&auto=format&fit=crop&q=60')
+            no-repeat center center/cover;
+} */
+
+/* a{
+    background-color: red;
+    display: none;
+} */
+
+.main{
+    display:flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    gap: 20px;
+    border: 2px solid black;
+    align-items: last-baseline;
+}
+
+.card1{
+    height: 300px;
+    width: 200px;
+    background-color: red;
+}
+.card2{
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    align-self: center;
+}
+.card3{
+    height: 400px;
+    width: 200px;
+    background-color: blue;
+}
+.card4{
+    height: 200px;
+    width: 200px;
+    background-color: yellow;
+}
+
+/* .main{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.logo img{
+    height: 40px;
+    width: 40px;
+}
+
+.navlink a{
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+    font-size: 18px;
+} */
