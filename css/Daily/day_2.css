@@ -1,0 +1,100 @@
+/* .main{
+    position: relative;
+    height: 400px;
+    width: 500px;
+    margin: 100px auto;
+}
+
+.card1,.card2,.card3,.card4{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+
+.card1{
+    background: #bb0b9e;
+    left: 50px;
+    top: 200px;
+    z-index: -1;
+}
+
+.card2{
+    background: #2c1e6e;
+    left: 100px;
+    top: 150px;
+    z-index: -2;
+}
+
+.card3{
+    background: #b60f0f;
+    left: 150px;
+    top: 100px;
+    z-index: -3;
+}
+
+.card4{
+    background: #3fad14;
+    left: 200px;
+    top: 50px;
+    z-index: -4;
+} */
+
+/* .b{
+    display:none;
+    visibility:hidden;
+}
+.a{
+    float:right;
+    clear:left;
+} */
+
+/* .card{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #bb0b9e;
+    margin: 100px auto;
+    box-shadow: 20px 20px 20px 40x  rgba(0,0,0,0.5);
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+
+} */
+
+.main{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(148, 111, 66);
+    position: relative;
+    animation-name: ravi;
+    animation-duration: 5s;
+    animation-delay: 5s;   
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes ravi{
+    0%{
+        background-color: rgb(148, 111, 66);
+        top:0;
+        left:0;
+    }
+    25%{
+        background-color: rgb(39, 236, 13);
+        top:0;
+        left:300px;
+    }
+    50%{
+        background-color: rgb(10, 48, 216);
+        top:300px;
+        left:300px;
+    }
+    75%{
+        background-color: rgb(236, 13, 61);
+        top:300px;
+        left:0;
+    }
+    100%{
+        background-color: rgb(59, 50, 39);
+        top:0;
+        left:0;
+    }
+}
