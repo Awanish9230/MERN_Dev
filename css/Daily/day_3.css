@@ -1,3 +1,36 @@
-div +p{
-    background-color: red;
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card{
+    width: calc((100% - 80px) / 5); /* 5 cards */
+    height: 150px;
+    background: lightblue;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tablet */
+@media (max-width: 992px){
+    .card{
+        width: calc((100% - 40px) / 3); /* 3 cards */
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+    .card{
+        width: calc((100% - 20px) / 2); /* 2 cards */
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px){
+    .card{
+        width: 100%; /* 1 card */
+    }
 }

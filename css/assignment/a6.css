@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 20px 80px;
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu2 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+#men {
+    width: 30px;
+    height: 30px;
+}
+
+.main-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    gap: 50px;
+}
+
+.content {
+    flex: 1;
+}
+
+.p1 {
+    color: white;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+p {
+    color: white;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 20px;
+    width: 160px;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-3 {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.main-3 div {
+    height: 220px;
+    border-radius: 15px;
+    padding: 15px;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.main-3 div:hover {
+    transform: translateY(-10px);
+}
+
+.img-1 {
+    background-image: url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80");
+}
+
+.img-2 {
+    background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80");
+}
+
+.img-3 {
+    background-image: url("https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&fit=crop&w=800&q=80");
+}
+
+.img-4 {
+    background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80");
+}
+
+.small {
+    font-size: 13px;
+}
+
+@media(max-width:768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .main-2 {
+        flex-direction: column;
+    }
+
+    .p1 {
+        font-size: 60px;
+    }
+
+    .main-3 {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .main-3 div {
+        width: 100%;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu2 {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
