@@ -1,0 +1,131 @@
+/* =========================================================
+  auth.js — auth page logic
+  The app stores one local account in localStorage. Users must
+  register first, then sign in with the saved email/password.
+  ========================================================= */
+
+const LOCAL_ROLE = "Project Admin";
+
+function normalizeEmail(value) {
+  return value.trim().toLowerCase();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // if already logged in, skip straight to the dashboard
+  if (Session.get()) {
+    window.location.href = "dashboard.html";
+    return;
+  }
+
+  const registerForm = document.getElementById("register-form");
+  const signinForm = document.getElementById("signin-form");
+  const errorBox = document.getElementById("login-error");
+  const successBox = document.getElementById("login-success");
+  const registerBtn = document.getElementById("show-register-btn");
+  const signinBtn = document.getElementById("show-signin-btn");
+  const authTitle = document.getElementById("auth-title");
+  // const authCopy = document.getElementById("auth-copy");
+  const authHint = document.getElementById("auth-hint");
+
+  function clearMessages() {
+    errorBox.textContent = "";
+    errorBox.classList.remove("show");
+    successBox.textContent = "";
+    successBox.classList.remove("show");
+  }
+
+ function setMode(mode) {
+  clearMessages();
+
+  const isRegister = mode === "register";
+
+ 
+  registerForm.classList.toggle("hidden", !isRegister);
+  signinForm.classList.toggle("hidden", isRegister);
+
+  registerBtn.classList.toggle("active", isRegister);
+  signinBtn.classList.toggle("active", !isRegister);
+
+  authTitle.textContent = isRegister
+    ? "Create your account"
+    : "Welcome back";
+
+authHint.innerHTML = isRegister
+  ? `<a href="#" id="toggle-link">Already have an account? Sign in</a>`
+  : `<a href="#" id="toggle-link">Don't have an account? Create one</a>`;
+
+  document.getElementById("toggle-link").addEventListener("click", function (e) {
+    e.preventDefault();
+    setMode(isRegister ? "signin" : "register");
+  });
+}
+
+  registerBtn.addEventListener("click", () => setMode("register"));
+  signinBtn.addEventListener("click", () => setMode("signin"));
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const modeParam = urlParams.get("mode");
+  const storedUser = Auth.get();
+
+  if (modeParam === "register") {
+    setMode("register");
+  } else if (modeParam === "signin") {
+    setMode("signin");
+  } else {
+    setMode(storedUser ? "signin" : "register");
+  }
+
+  registerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    clearMessages();
+    const nameInput = document.getElementById("name");
+    const email = normalizeEmail(document.getElementById("email").value);
+    const password = document.getElementById("password").value;
+    const name = nameInput.value.trim() || email.split("@")[0] || "Project User";
+
+    if (!name || !email || !password) {
+      errorBox.textContent = "Enter a name, email, and password.";
+      errorBox.classList.add("show");
+      return;
+    }
+
+    if (Auth.get()) {
+      errorBox.textContent = "A local account already . Sign in instead.";
+      errorBox.classList.add("show");
+      setMode("signin");
+      return;
+    }
+
+    const user = { name, role: LOCAL_ROLE, email, password };
+    Auth.set(user);
+    successBox.textContent = "Registration complete. You can now sign in.";
+    successBox.classList.add("show");
+    registerForm.reset();
+    setMode("signin");
+  });
+
+  signinForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    clearMessages();
+    const email = normalizeEmail(document.getElementById("signin-email").value);
+    const password = document.getElementById("signin-password").value;
+    const user = Auth.get();
+
+    if (!user) {
+      errorBox.textContent = "No account has been registered  Please register first.";
+      errorBox.classList.add("show");
+      setMode("register");
+      return;
+    }
+
+    if (normalizeEmail(user.email || "") !== email || user.password !== password) {
+      errorBox.textContent = "Sign-in failed. Please verify your email and password.";
+      errorBox.classList.add("show");
+      return;
+    }
+
+    Session.set({ name: user.name, role: user.role || LOCAL_ROLE, email: user.email });
+    seedDemoData();
+    window.location.href = "dashboard.html";
+  });
+});
