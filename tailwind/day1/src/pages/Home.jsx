@@ -177,7 +177,7 @@ export default function Home() {
                   className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/20"
                 >
                   <Play className="h-4 w-4 fill-current" />
-                  Watch Demo
+                  Watch Demo app
                 </button>
               </div>
             </div>
